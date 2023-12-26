@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Born2Earn Game Shop - Data Safety</title>
+    <!-- Add Bootstrap CDN links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <style>
+        body {
+            background-color: #a9b3c7; /* Adjust the color code as needed */
+        }
+
+        /* Adjust logo size */
+        .logo {
+            max-width: 100px; /* Adjust the max-width as needed */
+            height: auto;
+        }
+
+        /* Make button width responsive */
+        .responsive-button {
+            width: 100%;
+        }
+    </style>
+<body>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <img src="https://play-lh.googleusercontent.com/9DqI-7OD7e_66ul85JsxQRYE10uVZXN44JRG72sU1H76ZPZVbMx-SdaQqbO25bPCaA=w240-h480-rw" alt="Born2Earn Game Shop Logo" class="img-fluid logo">
+            <h4 class="mt-3">Born2Earn Game Shop Data Safety</h4>
+        </div>
+        <div class="card-body">
+            <form id="dataSafetyForm">
+                <form id="dataSafetyForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number:</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Enter number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="requestType">Request Type:</label>
+                        <select class="form-control" id="requestType" name="requestType" required>
+                            <option value="Delete Account">Delete Account</option>
+                            <option value="Delete Data">Delete Data</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="issueDescription">Describe the issue:</label>
+                        <textarea class="form-control" id="issueDescription" name="issueDescription" rows="3" required></textarea>
+                    </div>
+               
+
+                <div class="text-center">
+                    <button type="button" class="btn btn-success responsive-button" onclick="submitForm()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap JS and Popper.js CDN links -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function submitForm() {
+        // Get form data
+        const formData = new FormData(document.getElementById('dataSafetyForm'));
+
+        // Construct the message with Markdown-style formatting
+        let message = `*Name:* ${formData.get('name')}\n`;
+        message += `*Email:* ${formData.get('email')}\n`;
+        message += `*Mobile Number:* ${formData.get('mobile')}\n`;
+        message += `*Request Type:* ${formData.get('requestType')}\n`;
+        message += `*Issue Description:* ${formData.get('issueDescription')}`;
+
+        // Redirect to WhatsApp with the data
+        window.location.href = `https://wa.me/919547671067?text=${encodeURIComponent(message)}`;
+    }
+</script>
+
+</body>
+</html>
+
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="0ddef963-7f2e-4540-82bf-805fb9dece80";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
