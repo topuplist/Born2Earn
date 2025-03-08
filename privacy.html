@@ -5,96 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Born2Earn Game Shop</title>
     <style>
+        :root {
+            --primary: #8A2BE2;    /* Vibrant Purple */
+            --secondary: #20B2AA;  /* Light Sea Green */
+            --accent: #FF6B6B;     /* Soft Red */
+            --dark: #2C3E50;      /* Deep Blue Gray */
+            --light: #F8F9FA;     /* Off White */
+        }
+
+        /* Base Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
         header {
-            background-color: #007BFF;
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             text-align: center;
-            padding: 20px;
+            padding: 4rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -3rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        header img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
         }
 
-        header h1 {
-            margin-top: 10px;
-            color: #fff; /* Text color set to white */
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        h1 {
+            margin: 1.5rem 0 0;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Dropdown Sections */
+        .dropdown-section {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-header {
+            padding: 1.5rem 2rem;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .dropdown-header::before {
+            content: '▶';
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-header:hover {
+            background: var(--secondary);
+        }
+
+        input[type="checkbox"]:checked + .dropdown-header::before {
+            transform: rotate(90deg);
+        }
+
+        .dropdown-content {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input[type="checkbox"]:checked + .dropdown-header + .dropdown-content {
+            max-height: 2000px;
+            padding: 2rem;
+        }
+
+        /* Content Styling */
+        h2, h3 {
+            color: var(--dark);
+            margin: 2rem 0 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        li {
+            padding: 1rem;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 2.5rem;
         }
 
-        h1, h2, h3 {
-            color: #007BFF;
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 1rem;
+            color: var(--secondary);
+            font-weight: bold;
         }
 
-        p {
-            margin-bottom: 15px;
+        li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .dropdown-header {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .dropdown-content {
+                padding: 0 1rem;
+            }
+
+            input[type="checkbox"]:checked + .dropdown-header + .dropdown-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            li {
+                padding: 0.8rem;
+                padding-left: 2rem;
+            }
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         footer {
-            margin-top: 20px;
+            background: var(--dark);
+            color: white;
             text-align: center;
-            color: #666;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-
-
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Born2Earn Game Shop</h1>
+    </header>
 
     <main>
-        <h2>Privacy Policy</h2>
+         <h2>Privacy Policy</h2>
 
         <p>We collect the minimum amount of information about you that is commensurate with providing you with a satisfactory service. This policy indicates the type of processes that may result in data being collected about you. Your use of this website gives us the right to collect that information.</p>
 
-        <h3>Information Collected</h3>
-        <p>We may collect any or all of the information that you give us depending on the type of transaction you enter into, including your name, address, telephone number, and email address, together with data about your use of the website. Other information that may be needed from time to time to process a request may also be collected as indicated on the website.</p>
+        <div class="dropdown-section">
+            <input type="checkbox" id="info-collected">
+            <label for="info-collected" class="dropdown-header">Information Collected</label>
+            <div class="dropdown-content">
+                <p>We may collect any or all of the information that you give us depending on the type of transaction you enter into, including:</p>
+                <ul>
+                    <li>Your name</li>
+                    <li>Address</li>
+                    <li>Telephone number</li>
+                    <li>Email address</li>
+                    <li>Data about your use of the website</li>
+                </ul>
+            </div>
+        </div>
 
-        <h3>Information Use</h3>
-        <p>We use the information collected primarily to process the task for which you visited the website. Data collected in the UK is held in accordance with the Data Protection Act. All reasonable precautions are taken to prevent unauthorized access to this information. This safeguard may require you to provide additional forms of identity should you wish to obtain information about your account details.</p>
+        <div class="dropdown-section">
+            <input type="checkbox" id="info-use">
+            <label for="info-use" class="dropdown-header">Information Use</label>
+            <div class="dropdown-content">
+                <p>We use the information collected primarily to process the task for which you visited the website. Data collected in the UK is held in accordance with the Data Protection Act. All reasonable precautions are taken to prevent unauthorized access to this information.</p>
+            </div>
+        </div>
 
-        <h3>Cookies</h3>
-        <p>Your Internet browser has the in-built facility for storing small files - "cookies" - that hold information which allows a website to recognize your account. Our website takes advantage of this facility to enhance your experience. You have the ability to prevent your computer from accepting cookies but, if you do, certain functionality on the website may be impaired.</p>
+        <div class="dropdown-section">
+            <input type="checkbox" id="cookies">
+            <label for="cookies" class="dropdown-header">Cookies</label>
+            <div class="dropdown-content">
+                <p>Your Internet browser has the in-built facility for storing small files - "cookies" - that hold information which allows a website to recognize your account. Our website takes advantage of this facility to enhance your experience.</p>
+            </div>
+        </div>
 
-        <h3>Disclosing Information</h3>
-        <p>We do not disclose any personal information obtained about you from this website to third parties unless you permit us to do so by ticking the relevant boxes in registration or competition forms. We may also use the information to keep in contact with you and inform you of developments associated with us. You will be given the opportunity to remove yourself from any mailing list or similar device. If at any time in the future we should wish to disclose information collected on this website to any third party, it would only be with your knowledge and consent.</p>
+        <h3>Health & Safety Policy</h3>
+        <p>Born2Earn Game Shop is committed to providing a safe and positive experience for all users. Our app:</p>
+        <ul>
+            <li>Does not contain any harmful, violent, or explicit content</li>
+            <li>Is designed to promote positive mental health and well-being</li>
+            <li>Includes age-appropriate content with clear age ratings</li>
+            <li>Encourages regular breaks and healthy gaming habits</li>
+            <li>Undergoes regular content audits by our safety team</li>
+        </ul>
 
-        <p>We may from time to time provide information of a general nature to third parties - for example, the number of individuals visiting our website or completing a registration form, but we will not use any information that could identify those individuals.</p>
-
-        <p>In addition, Born2Earn Game Shop may work with third parties for the purpose of delivering targeted behavioral advertising to the Born2Earn Game Shop website. Through the use of cookies, anonymous information about your use of our websites and other websites will be used to provide more relevant adverts about goods and services of interest to you.</p>
-
-        <h3>Changes to this Policy</h3>
-        <p>Any changes to our Privacy Policy will be placed here and will supersede this version of our policy. We will take reasonable steps to draw your attention to any changes in our policy. However, to be on the safe side, we suggest that you read this document each time you use the website to ensure that it still meets with your approval.</p>
+        <h3>Refund Policy</h3>
+        <p>We offer refunds under the following conditions:</p>
+        <ul>
+            <li><strong>Failed Orders:</strong> Full refunds (minus payment gateway charges) for verified failed transactions</li>
+            <li><strong>Processing Time:</strong> 7-10 business days for refund processing</li>
+        </ul>
+        
+        <div class="dropdown-section">
+            <input type="checkbox" id="refund-details">
+            <label for="refund-details" class="dropdown-header">Refund Details</label>
+            <div class="dropdown-content">
+                <p><strong>Refund Charges:</strong></p>
+                <ul>
+                    <li>2.5% deduction for UPI transactions</li>
+                    <li>3% deduction for credit/debit card payments</li>
+                </ul>
+                <p><strong>To Request a Refund:</strong></p>
+                <ol class="refund-steps">
+                    <li>Contact us within 48 hours of transaction</li>
+                    <li>Provide transaction ID and proof of payment failure</li>
+                    <li>Allow 24-48 hours for investigation</li>
+                </ol>
+            </div>
+        </div>
 
         <h3>Contacting Us</h3>
-        <p>If you have any questions about our Privacy Policy, or if you want to know what information we have collected about you, please email us at <a href="mailto:born2earn1995@gmail.com">born2earn1995@gmail.com</a> or call us at <strong>+91 95476 71067</strong>. You can also correct any factual errors in that information or require us to remove your details from any list under our control.</p>
+        <p>If you have any questions about our policies, please contact us:</p>
+        <ul>
+            <li>Email: <a href="mailto:born2earn1995@gmail.com">born2earn1995@gmail.com</a></li>
+            <li>Phone: <strong>+91 95476 71067</strong></li>
+        </ul>
+
     </main>
 
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
     <footer>
-        &copy; 2023 Born2Earn Game Shop. All rights reserved.
+        © 2023 Born2Earn Game Shop. All rights reserved.
     </footer>
 
+    <script>
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.querySelector('.scroll-top');
+            scrollBtn.classList.toggle('show', window.scrollY > 300);
+        });
+
+        // Smooth dropdown animation
+        document.querySelectorAll('.dropdown-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+        });
+    </script>
 </body>
 </html>
 
 
-
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="0ddef963-7f2e-4540-82bf-805fb9dece80";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
