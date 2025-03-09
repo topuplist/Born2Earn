@@ -1,70 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Profile - Himangshu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
+        header {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-  <title>Developer Profile - Himangshu</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+        }
 
-.title {
-  color: grey;
-  font-size: 18px;
-}
+        /* Profile Card Styling */
+        .card {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid #007BFF;
+            overflow: hidden;
+            position: relative;
+        }
 
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-button:hover, a:hover {
-  opacity: 0.7;
-}
-</style>
+        .social-links {
+            margin: 24px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .social-links a {
+            color: #007BFF;
+            margin: 0 15px;
+            font-size: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007BFF;
+            transition: width 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
+        }
+
+        button {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #007BFF;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        footer {
+            padding: 20px;
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Developer Profile</h1>
+    </header>
 
-<h2 style="text-align:center">Developer Profile</h2>
+    <div class="card">
+        <div class="profile-img-container">
+            <img src="https://html-generator.com/uploads/images/2023/12/27/12232VK4R1X05KE.jpg" 
+                 alt="Himangshu Paul" 
+                 class="profile-img">
+        </div>
+        <h1>Himangshu Paul</h1>
+        <p class="title">Android Dev | Graphic Designer</p>
+        <p>Inspiria Knowledge Campus</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/devhimangshu" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/iam.backend/" target="_blank">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/himangshupaul/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </div>
 
-<div class="card">
-  <img src="https://html-generator.com/uploads/images/2023/12/27/12232VK4R1X05KE.jpg" alt="John" style="width:100%">
-  <h1>Hiamngshu Paul</h1>
-  <p class="title">Android Dev | Graphic Designer</p>
-  <p>Inspiria Knowledge Campus</p>
-  <div style="margin: 24px 0;">
-    <a href="https://github.com/devhimangshu" style="margin-right: 10px;"><i class="fa fa-github"></i></a>
-    <a href="https://www.instagram.com/iam.backend/" style="margin-right: 10px;"><i class="fa fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/himangshupaul/"><i class="fa fa-linkedin"></i></a>
-</div>
-
-      <p><a href="https://himangshu.site"><button>Visit Portfolio</button></a></p>
+        <p><a href="https://himangshu.site" target="_blank">
+            <button>Visit Portfolio</button>
+        </a></p>
     </div>
 
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+    <footer>
+        &copy; 2023 Himangshu Paul. All rights reserved.
+    </footer>
+
+    <script>
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.querySelector('.scroll-top');
+            scrollBtn.classList.toggle('show', window.scrollY > 300);
+        });
+    </script>
+
+    <!-- Crisp Chat Script -->
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="4d308455-1fae-4e20-8e1c-3f89b7b1b1dd";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
-
-
-
-
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="4d308455-1fae-4e20-8e1c-3f89b7b1b1dd";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
